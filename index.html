@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NutriCart - Healthy Meals Delivered</title>
+  <link rel="stylesheet" href="style.css" />
+  <link   href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">🥗 NutriCart</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#register">Register</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Welcome to NutriCart</h1>
+      <p>Healthy, Fresh & Personalized Meals Delivered Right to Your Doorstep.</p>
+      <a href="#register" class="btn">Join Us</a>
+    </div>
+  </section>
+
+  <section class="form-section" id="register">
+    <h2>Register Now</h2>
+    <form id="registerForm">
+      <input type="text" placeholder="Full Name" required>
+      <input type="number" placeholder="Age" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="password" placeholder="Create Password" required>
+
+      <div class="choice">
+        <label>
+          <input type="radio" name="diet" value="yes" required>
+          I want a Personalized Diet Plan
+        </label>
+        <label>
+          <input type="radio" name="diet" value="no">
+          I just want to Order Food
+        </label>
+      </div>
+
+      <button type="submit" class="submit-btn">Register</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 NutriCart. Made with 💚 for your health.</p>
+  </footer>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const dietOption = document.querySelector('input[name="diet"]:checked').value;
+      if (dietOption === "yes") {
+        window.location.href = "diet-login.html";
+      } else {
+        window.location.href = "login.html";
+      }
+    });
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Successful - NutriCart</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.9);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 40px;
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+      max-width: 500px;
+    }
+
+    .btn {
+      margin-top: 25px;
+      background-color: #e53935;
+      color: white;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      display: inline-block;
+      margin-right: 15px;
+    }
+
+    .btn:hover {
+      background-color: #c62828;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>✅ Order Placed Successfully!</h1>
+    <p>Your order has been placed with <strong>NutriCart</strong> and you’ve been logged out for security. Thank you for using our service!</p>
+
+    <!-- Action Buttons -->
+    <a class="btn" href="index.html">🔁 Login Again</a>
+    <a class="btn" href="dashboard.html">⬅ Back to Dashboard</a>
+  </div>
+
+  <!-- JavaScript: clear local storage -->
+  <script>
+    localStorage.clear(); // Auto logout
+  </script>
+</body>
+</html>

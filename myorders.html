@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Orders - NutriCart</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://images.unsplash.com/photo-1605477967683-5873f558f33b?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.9);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #e53935;
+      margin-bottom: 30px;
+    }
+
+    .orders-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .order-card {
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .order-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .order-card h3 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .order-card p {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .empty-msg {
+      text-align: center;
+      font-size: 18px;
+      color: #888;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>📦 Your Orders</h1>
+    <div id="orders" class="orders-container"></div>
+    <div id="emptyMsg" class="empty-msg" style="display: none;">No items in your cart.</div>
+  </div>
+
+  <script>
+    const ordersDiv = document.getElementById("orders");
+    const emptyMsg = document.getElementById("emptyMsg");
+
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cartItems.length === 0) {
+      emptyMsg.style.display = "block";
+    } else {
+      cartItems.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "order-card";
+        card.innerHTML = `
+          <h3>${item.name}</h3>
+          <p><strong>Category:</strong> ${item.category || 'Healthy Dish'}</p>
+          <p><strong>Price:</strong> ₹${item.price || 149}</p>
+          <p><strong>Quantity:</strong> ${item.quantity || 1}</p>
+        `;
+        ordersDiv.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>
